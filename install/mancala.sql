@@ -1,7 +1,11 @@
+-- file: /install/mancala.sql
+-- by: ravenmyst
+-- description: import this file in mysql to initialize database
+
 -- start transaction
 start transaction;
 
--- spawn database
+-- make database
 create database mancala;
 
 -- use new database
@@ -276,5 +280,5 @@ create table game_state_relation
     gem_count int (6) unsigned not null
 );
 
--- commit transactions
+-- commit transaction
 commit;
