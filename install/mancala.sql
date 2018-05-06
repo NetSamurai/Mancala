@@ -6,7 +6,10 @@
 start transaction;
 
 -- make database
-create database mancala;
+create database mancala
+-- set encoding utf-8_general_ci
+    default character set utf8
+    default collate utf8_general_ci;
 
 -- use new database
 use mancala;
@@ -74,10 +77,12 @@ values
 -- make hole table
 create table hole
 (
-    id int(6) unsigned auto_increment primary key,
+    id int(6) unsigned auto_increment,
     name varchar(256) not null,
     type int (6) unsigned not null,
     
+    primary key (id),
+
     foreign key (type)
         references hole_type(id)
             on delete cascade
@@ -269,7 +274,7 @@ values
 -- make game table
 create table game
 (
-    id int(6) unsigned auto_increment primary key,
+    id int(6) unsigned auto_increment,
     game_config_id int (6) unsigned not null,
     active int (6) unsigned not null,
     user_id_player_1 int (6) unsigned not null,
@@ -280,6 +285,8 @@ create table game
     last_played_timestamp timestamp,
     bonus_moves_player_1 int (6) unsigned not null,
     bonus_moves_player_2 int (6) unsigned not null,
+
+    primary key(id),
 
     foreign key (game_config_id)
         references game_config(id)
