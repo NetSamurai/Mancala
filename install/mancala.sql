@@ -14,13 +14,15 @@ use mancala;
 -- make users table
 create table users 
 (
-    id int(6) unsigned auto_increment primary key,
+    id int(6) unsigned auto_increment,
     username varchar(100) not null,
     password varchar(512) not null,
     firstname varchar(30) not null,
     lastname varchar(30) not null,
     email varchar(50),
-    reg_date timestamp
+    reg_date timestamp,
+
+    primary key(id)
 );
 
 -- make trial account
@@ -44,8 +46,10 @@ values
 -- make hole type table
 create table hole_type 
 (
-    id int(6) unsigned auto_increment primary key,
-    name varchar(256) not null
+    id int(6) unsigned auto_increment,
+    name varchar(256) not null,
+
+    primary key(id)
 );
 
 -- insert basic mancala hole types
@@ -72,7 +76,11 @@ create table hole
 (
     id int(6) unsigned auto_increment primary key,
     name varchar(256) not null,
-    type int (6) unsigned not null
+    type int (6) unsigned not null,
+    
+    foreign key (type)
+        references hole_type(id)
+            on delete cascade
 );
 
 -- insert all mancala holes into the structure
@@ -233,11 +241,13 @@ values
 -- make game_config table
 create table game_config
 (
-    id int(6) unsigned auto_increment primary key,
+    id int(6) unsigned auto_increment,
     color_1_player_1 int (6) unsigned not null,
     color_2_player_1 int (6) unsigned not null,
     color_1_player_2 int (6) unsigned not null,
-    color_2_player_2 int (6) unsigned not null
+    color_2_player_2 int (6) unsigned not null,
+
+     primary key(id)
 );
 
 -- insert default game_config
@@ -269,7 +279,27 @@ create table game
     last_played_user_id int (6) unsigned not null,
     last_played_timestamp timestamp,
     bonus_moves_player_1 int (6) unsigned not null,
-    bonus_moves_player_2 int (6) unsigned not null
+    bonus_moves_player_2 int (6) unsigned not null,
+
+    foreign key (game_config_id)
+        references game_config(id)
+            on delete cascade,
+
+    foreign key (user_id_player_1)
+        references users(id)
+            on delete cascade,
+
+    foreign key (user_id_player_2)
+        references users(id)
+            on delete cascade, 
+
+    foreign key (last_played_user_id)
+        references users(id)
+            on delete cascade,       
+    
+    foreign key (last_played_hole_id)
+        references hole(id)
+            on delete cascade
 );
 
 -- make game_state table
@@ -277,7 +307,15 @@ create table game_state_relation
 (
     game_id int (6) unsigned not null,
     hole_id int (6) unsigned not null,
-    gem_count int (6) unsigned not null
+    gem_count int (6) unsigned not null,
+
+    foreign key (game_id)
+        references game(id)
+            on delete cascade,
+
+    foreign key (hole_id)
+        references hole(id)
+            on delete cascade 
 );
 
 -- commit transaction
