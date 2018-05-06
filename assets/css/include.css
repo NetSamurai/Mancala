@@ -1,0 +1,17 @@
+@media (max-width: 640px) { 
+    #game-container {
+        background-image: url('../img/mancala_tall.png') !important; 
+        width: 100vw; 
+        height: 100vh; 
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
+}
+
+#game-container {
+    background-image: url('../img/mancala.png'); 
+    width: 100vw; 
+    height: 100vh; 
+    background-repeat: no-repeat;
+    background-position: center top;
+}
