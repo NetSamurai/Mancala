@@ -1,3 +1,5 @@
-#Mancala
+# Mancala
 
-Not completed yet.. please check back later!
+Not completed yet..
+
+<a href="https://ravenmyst.net/work/mancala/">Demo in progress here</a>

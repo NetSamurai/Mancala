@@ -1,3 +1,12 @@
+<?php
+  include '../../../config.php';
+  include 'mancala.php';
+
+  $sql = "select name, type from hole";
+  $result = executeQuery($sql);
+  $board = convertQueryToBoard($result);
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,21 +29,10 @@
   <body class="text-center" style="background-image: url('../../assets/img/tron.jpg'); background-position: 58.33325% center;">
 
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
-      <div>
-          <div id="game-container" class="container">
-              <div class="row justify-content-md-center w-500" style="height: 214px">
-                <div class="col col-lg-2" style="max-width: 100px">
-                  1 of 3
-                </div>
-                <div class="col-md-auto w-100">
-                  Variable width content
-                </div>
-                <div class="col col-lg-2" style="max-width: 100px">
-                  3 of 3
-                </div>
-            </div>
-          </div>
+      <div id="game-container">
+          <?php
+            displayBoard( $board );
+          ?>
       </div>
     </div>
 

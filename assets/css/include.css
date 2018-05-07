@@ -1,17 +1,71 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
 @media (max-width: 640px) { 
+    .game-piece {
+        transform: rotate(270deg) !important;
+        display: inline-block !important;
+    }
     #game-container {
-        background-image: url('../img/mancala_tall.png') !important; 
-        width: 100vw; 
-        height: 100vh; 
-        background-repeat: no-repeat;
-        background-position: center top;
+        width: 134px !important;
+        height: 536px !important;
+        display: inline-block !important;
+    }
+    #p1_hole_0_div {
+        transform: rotate(90deg) !important;
+        background-image: url('../img/mancala_pot.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+    #p2_hole_0_div {
+        background-image: url('../img/mancala_pot.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        transform: rotate(270deg) !important;
+        position: relative !important;
+        bottom: 34px !important;
+    }
+    .game-holes {
+        max-height: 100px !important;
+        position: relative !important;
+        bottom: 67px !important;
+    }
+    body {
+        line-height: .95 !important;
     }
 }
 
 #game-container {
-    background-image: url('../img/mancala.png'); 
-    width: 100vw; 
-    height: 100vh; 
+    width: 536px;
+    height: 134px;
+    display: inherit;
+}
+
+.game-piece {
+    background-image: url('../img/mancala_divot.png'); 
+    width: 67px; 
+    height: 67px; 
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: center;
+}
+
+.game-holes {
+    display: inline-block;
+}
+
+#p1_hole_0_div {
+    background-image: url('../img/mancala_pot.png');
+    width: 67px; 
+    height: 134px;
+}
+
+#p2_hole_0_div {
+    background-image: url('../img/mancala_pot.png');
+    width: 67px; 
+    height: 134px; 
+    transform: rotate(180deg);
 }
