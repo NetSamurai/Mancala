@@ -18,13 +18,9 @@
     #p1_hole_0_div {
         transform: rotate(90deg) !important;
         background-image: url('../img/mancala_pot.png') !important;
-        background-repeat: no-repeat !important;
-        background-position: center !important;
     }
     #p2_hole_0_div {
         background-image: url('../img/mancala_pot.png') !important;
-        background-repeat: no-repeat !important;
-        background-position: center !important;
         transform: rotate(270deg) !important;
         position: relative !important;
         bottom: 34px !important;
@@ -49,8 +45,6 @@
     background-image: url('../img/mancala_divot.png'); 
     width: 67px; 
     height: 67px; 
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .game-holes {
