@@ -28,7 +28,7 @@
 
   <body class="text-center" style="background-image: url('../../assets/img/tron.jpg'); background-position: 58.33325% center;">
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="cover-container w-100 h-100 p-3 mx-auto flex-column">
       <div id="game-container">
           <?php
             displayBoard( $board );
