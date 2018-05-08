@@ -20,9 +20,6 @@ create table users
     id int(6) unsigned auto_increment,
     username varchar(100) not null,
     password varchar(512) not null,
-    firstname varchar(30) not null,
-    lastname varchar(30) not null,
-    email varchar(50),
     reg_date timestamp,
 
     primary key(id)
@@ -32,18 +29,12 @@ create table users
 insert into users 
 ( 
     username, 
-    password, 
-    firstname, 
-    lastname, 
-    email
+    password
 ) 
 values 
 ( 
-    "test_user", 
-    "test_user", 
-    "Test", 
-    "User", 
-    "test@email.com"
+    "test", 
+    "test"
 );
 
 -- make hole type table
