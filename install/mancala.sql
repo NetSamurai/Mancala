@@ -275,6 +275,7 @@ values
 create table game
 (
     id int(6) unsigned auto_increment,
+    game_hash varchar(256) not null,
     game_config_id int (6) unsigned not null,
     active int (6) unsigned not null,
     user_id_player_1 int (6) unsigned not null,
